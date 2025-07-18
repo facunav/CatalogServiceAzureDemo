@@ -27,12 +27,15 @@ jobs:
           tenant-id: ${{ secrets.CATALOGSERVICECONTAINER_AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.CATALOGSERVICECONTAINER_AZURE_SUBSCRIPTION_ID }}
 
-      - name: Deploy container app using existing image from GHCR
+      - name: Deploy to Azure Container Apps
         uses: azure/container-apps-deploy-action@v2
         with:
-          containerAppName: catalogservicecontainer
-          resourceGroup: catalogservice-rg
-          imageToDeploy: ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:latest
+          appSourcePath: .                                # No afecta mucho porque usamos imageToDeploy
           registryUrl: ghcr.io
           registryUsername: ${{ github.actor }}
           registryPassword: ${{ secrets.GHCR_PAT }}
+          imageToDeploy: ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:latest
+          containerAppName: catalogservicecontainer
+          resourceGroup: DefaultResourceGroup-CQ
+          environment: managedEnvironment-DefaultResource-b29c
+          location: brazilsouth
