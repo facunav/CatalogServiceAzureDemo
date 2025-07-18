@@ -30,8 +30,9 @@ jobs:
       - name: Deploy container app using existing image from GHCR
         uses: azure/container-apps-deploy-action@v2
         with:
-          registryUsername: ${{ secrets.CATALOGSERVICECONTAINER_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.CATALOGSERVICECONTAINER_REGISTRY_PASSWORD }}
           containerAppName: catalogservicecontainer
           resourceGroup: DefaultResourceGroup-CQ
           imageToDeploy: ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:latest
+          registryServer: ghcr.io
+          registryUsername: ${{ secrets.GHCR_USERNAME }}
+          registryPassword: ${{ secrets.GHCR_PAT }}
