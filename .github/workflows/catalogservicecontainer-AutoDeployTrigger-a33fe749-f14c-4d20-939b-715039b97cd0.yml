@@ -34,7 +34,7 @@ jobs:
           registryUrl: ghcr.io
           registryUsername: ${{ github.actor }}
           registryPassword: ${{ secrets.GHCR_PAT }}
-          imageToDeploy: ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:latest
+          imageToDeploy: ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:${{ github.sha }}
           containerAppName: catalogservicecontainer
           resourceGroup: DefaultResourceGroup-CQ
           containerAppEnvironment: managedEnvironment-DefaultResource-b29c
