@@ -37,5 +37,5 @@ jobs:
           imageToDeploy: ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:latest
           containerAppName: catalogservicecontainer
           resourceGroup: DefaultResourceGroup-CQ
-          environment: managedEnvironment-DefaultResource-b29c
+          containerAppEnvironment: managedEnvironment-DefaultResource-b29c
           location: brazilsouth
