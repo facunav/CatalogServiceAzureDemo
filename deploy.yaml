@@ -31,12 +31,12 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/catalogservice:latest \
-                     -t ghcr.io/${{ github.repository_owner }}/catalogservice:${{ github.sha }} \
+        docker build -t ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:latest \
+                     -t ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:${{ github.sha }} \
                      .
 
     - name: Push Docker image (latest)
-      run: docker push ghcr.io/${{ github.repository_owner }}/catalogservice:latest
+      run: docker push ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:latest
 
     - name: Push Docker image (commit SHA)
-      run: docker push ghcr.io/${{ github.repository_owner }}/catalogservice:${{ github.sha }}
+      run: docker push ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:${{ github.sha }}

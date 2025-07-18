@@ -34,4 +34,4 @@ jobs:
           registryPassword: ${{ secrets.CATALOGSERVICECONTAINER_REGISTRY_PASSWORD }}
           containerAppName: catalogservicecontainer
           resourceGroup: DefaultResourceGroup-CQ
-          imageToDeploy: ghcr.io/${{ github.repository_owner }}/catalogservice:latest
+          imageToDeploy: ghcr.io/${{ github.repository_owner }}/catalogserviceazuredemo:latest
