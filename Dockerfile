@@ -1,15 +1,16 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
+EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiar sólo el csproj para cache de restore
+# Copiar solo el proyecto para cachear restore
 COPY ["Catalog.API/Catalog.API.csproj", "Catalog.API/"]
 
 RUN dotnet restore "Catalog.API/Catalog.API.csproj"
 
-# Copiar todo el código de la solución
+# Copiar el resto del código
 COPY . .
 
 WORKDIR "/src/Catalog.API"
@@ -20,4 +21,3 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "Catalog.API.dll"]
-

@@ -7,9 +7,10 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(8080);
+    options.ListenAnyIP(int.Parse(port));
 });
 
 builder.Services.AddDbContext<CatalogDbContext>(opt =>
